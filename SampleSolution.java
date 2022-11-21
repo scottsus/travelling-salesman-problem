@@ -10,7 +10,7 @@
 import java.io.*;
 import java.util.*;
 
-public class TspDynamicProgrammingIterative {
+public class SampleSolution {
 
     private final int N, start;
     private final double[][] distance;
@@ -18,11 +18,11 @@ public class TspDynamicProgrammingIterative {
     private double minTourCost = Double.POSITIVE_INFINITY;
     private boolean ranSolver = false;
 
-    public TspDynamicProgrammingIterative(double[][] distance) {
+    public SampleSolution(double[][] distance) {
         this(0, distance);
     }
 
-    public TspDynamicProgrammingIterative(int start, double[][] distance) {
+    public SampleSolution(int start, double[][] distance) {
         N = distance.length;
 
         if (N <= 2)
@@ -195,7 +195,7 @@ public class TspDynamicProgrammingIterative {
         log(graph);
 
         long start = System.currentTimeMillis();
-        TspDynamicProgrammingIterative solver = new TspDynamicProgrammingIterative(startNode, graph);
+        SampleSolution solver = new SampleSolution(startNode, graph);
         List<Integer> tour = solver.getTour();
         double minTourCost = solver.getTourCost();
         long end = System.currentTimeMillis();
