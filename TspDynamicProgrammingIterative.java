@@ -1,3 +1,4 @@
+
 /**
  * An implementation of the traveling salesman problem in Java using dynamic programming to improve
  * the time complexity from O(n!) to O(n^2 * 2^n).
@@ -181,17 +182,6 @@ public class TspDynamicProgrammingIterative {
     }
 
     public static void main(String[] args) throws Exception {
-        // Create adjacency matrix
-        // int n = 6;
-        // double[][] distanceMatrix = new double[n][n];
-        // (double[] row : distanceMatrix)
-        // java.util.Arrays.fill(row, 10000);
-        // distanceMatrix[5][0] = 10;
-        // distanceMatrix[1][5] = 12;
-        // distanceMatrix[4][1] = 2;
-        // distanceMatrix[2][4] = 4;
-        // distanceMatrix[3][2] = 6;
-        // distanceMatrix[0][3] = 8;
         Scanner sc = new Scanner(new BufferedReader(new FileReader("data.txt")));
         int n = 15;
         double[][] graph = new double[n][n];
@@ -206,15 +196,13 @@ public class TspDynamicProgrammingIterative {
 
         long start = System.currentTimeMillis();
         TspDynamicProgrammingIterative solver = new TspDynamicProgrammingIterative(startNode, graph);
+        List<Integer> tour = solver.getTour();
+        double minTourCost = solver.getTourCost();
         long end = System.currentTimeMillis();
-
-        // Prints: [0, 3, 2, 4, 1, 5, 0]
-        System.out.println("Tour: " + solver.getTour());
-
-        // Print: 42.0
-        System.out.println("Tour cost: " + solver.getTourCost());
-
         long timeElapsed = end - start;
+
+        System.out.println("Tour: " + tour);
+        System.out.println("Tour cost: " + minTourCost);
         System.out.println("Time taken: " + timeElapsed + " ms");
     }
 }
