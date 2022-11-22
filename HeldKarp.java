@@ -10,7 +10,7 @@
 import java.io.*;
 import java.util.*;
 
-public class SampleSolution {
+public class HeldKarp {
 
     private final int N, start;
     private final double[][] distance;
@@ -18,11 +18,11 @@ public class SampleSolution {
     private double minTourCost = Double.POSITIVE_INFINITY;
     private boolean ranSolver = false;
 
-    public SampleSolution(double[][] distance) {
+    public HeldKarp(double[][] distance) {
         this(0, distance);
     }
 
-    public SampleSolution(int start, double[][] distance) {
+    public HeldKarp(int start, double[][] distance) {
         N = distance.length;
 
         if (N <= 2)
@@ -172,9 +172,9 @@ public class SampleSolution {
         }
     }
 
-    public static void log(double[][] graph) {
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 15; j++) {
+    public static void log(double[][] graph, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 System.out.print(graph[i][j] + " ");
             }
             System.out.println();
@@ -182,8 +182,12 @@ public class SampleSolution {
     }
 
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(new BufferedReader(new FileReader("data.txt")));
-        int n = 15;
+        int matrixSize = 7;
+        if (args.length == 1)
+            matrixSize = Integer.valueOf(args[0]);
+        String textFile = matrixSize + "x" + matrixSize + ".txt";
+        Scanner sc = new Scanner(new BufferedReader(new FileReader(textFile)));
+        int n = matrixSize;
         double[][] graph = new double[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -192,10 +196,10 @@ public class SampleSolution {
         }
 
         int startNode = 0;
-        log(graph);
+        // log(graph, n);
 
         long start = System.currentTimeMillis();
-        SampleSolution solver = new SampleSolution(startNode, graph);
+        HeldKarp solver = new HeldKarp(startNode, graph);
         List<Integer> tour = solver.getTour();
         double minTourCost = solver.getTourCost();
         long end = System.currentTimeMillis();

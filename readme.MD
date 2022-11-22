@@ -1,9 +1,9 @@
 # Travelling Salesman Problem
 
-## Idea
+## Hypothesis
 
-We'll be benchmarking the Bellman-Held-Karp Algorithm against 3 graph algorithms learned in CS270, namely: Greedy Approach, Dijkstra's Algorithm, and Bellman Ford Algorithm, which we plan to parallelize.
+Parallelized Brute Force with time complexity O(N!) might be more suitable for some problem sizes compared to the famous Held-Karp Algorithm.
 
 ## Correct Implementation
 
-Credits to William Fiset for his [implementation of the solution](https://github.com/williamfiset/Algorithms/blob/master/src/main/java/com/williamfiset/algorithms/graphtheory/TspDynamicProgrammingIterative.java) to the TSP, written in Java.
+Credits to William Fiset for his [implementation of the Held Karp Algorithm](https://github.com/williamfiset/Algorithms/blob/master/src/main/java/com/williamfiset/algorithms/graphtheory/TspDynamicProgrammingIterative.java), written in Java.
